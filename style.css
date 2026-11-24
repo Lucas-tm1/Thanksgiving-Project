@@ -1,0 +1,226 @@
+html {
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 100vh;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    padding-bottom: 0;
+    text-align: center;
+    background-color: #1d1420;
+    background: radial-gradient(120% 90% at 50% 100%, #3a1f2b 0%, #1d1420 70%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: "Young Serif", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 5.6rem); 
+    line-height: 1.02;
+    margin: 0 0 5rem;
+    color: #fff3df;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.45);
+    
+}
+
+.clock { 
+    display: flex;
+    justify-content: center;
+    gap: clamp(0.6rem, 2.5vw, 1.5rem); 
+    flex-wrap: wrap; 
+}
+
+.unit {
+    min-width: clamp(4.6rem, 15vw, 8rem); 
+    padding: 1.1rem 0.6rem 0.9rem;
+    background: rgba(29, 20, 32, 0.55); 
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(6px);
+    border: 2px solid rgba(224, 138, 46, 0.35); 
+    border-radius: 1.2rem 0.3rem 1.2rem 0.3rem;
+    text-align: center;
+}
+
+.num {
+    display: block; font-family: "Young Serif", Georgia, serif;
+    font-size: clamp(2.4rem, 8vw, 8rem); line-height: 1; color: #f2c14e;
+    font-variant-numeric: tabular-nums;
+}
+
+.lbl { 
+    display: block; 
+    margin-top: 0.5rem; 
+    font-size: 0.95rem; 
+    color: #cdb7a6; 
+}
+
+.date { 
+    margin-top: 2rem; 
+    font-size: 1.25rem; 
+    color: #cdb7a6; 
+}
+
+#leaves {
+    position: fixed; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    pointer-events: none; z-index: 0; 
+}
+
+@media (max-width: 480px) { 
+    .unit { 
+        flex: 1 1 40%; 
+    } 
+}
+
+.toggle {
+    margin-top: 2.2rem; 
+    background: none; 
+    color: #f6e9d7; 
+    font: inherit;
+    border: 1px solid #cdb7a6; 
+    border-radius: 2rem; 
+    padding: 0.55rem 1.2rem; 
+    cursor: pointer;
+}
+
+.toggle:hover { 
+    border-color: #e08a2e; 
+    color: #f2c14e; 
+}
+
+.toggle:focus-visible { 
+    outline: 3px solid #f2c14e; 
+    outline-offset: 3px; 
+}
+
+a.toggle { 
+    display: inline-block; 
+    text-decoration: none; 
+    margin-left: 0;
+}
+
+.actions { 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.wall-sec { 
+    position: relative; 
+    z-index: 1; 
+    margin-inline: calc(-1 * clamp(1.5rem, 5vw, 3rem));
+    padding: 10vh clamp(1.5rem, 8vw, 7rem) 14vh; 
+    max-width: none;
+    background: rgba(13, 9, 15, 0.70);
+}
+
+.wall-sec h2 { 
+    font-family: "Young Serif", Georgia, serif; 
+    font-weight: 400; font-size: clamp(2rem, 5vw, 3.2rem); 
+    margin: 0 0 0.6rem; 
+    color: #fff3df;
+}
+
+.wall-sec p.sub { 
+    margin-bottom: 1.6rem; 
+}
+
+.wform { 
+    display: flex; 
+    gap: 0.6rem; 
+    flex-wrap: wrap; 
+    max-width: 40rem; 
+}
+
+.wform input {
+    flex: 1 1 14rem; 
+    font: inherit; 
+    color: #f6e9d7; 
+    background: rgba(29,20,32,0.65);
+    border: 1px solid #cdb7a6; 
+    border-radius: 2rem; 
+    padding: 0.7rem 1.1rem;
+}
+
+.wform input:focus-visible, .wform button:focus-visible { 
+    outline: 3px solid #f2c14e; 
+    outline-offset: 3px; 
+}
+
+.wform button {
+    font: inherit; 
+    font-weight: 600; 
+    color: #1d1420; 
+    background: #f2c14e;
+    border: 0; 
+    border-radius: 2rem; 
+    padding: 0.7rem 1.4rem; 
+    cursor: pointer;
+}
+
+.wform button:disabled { 
+    opacity: 0.5; 
+    cursor: default; 
+}
+
+.wstatus { 
+    min-height: 1.4rem; 
+    margin: 0.7rem 0 2rem; 
+    font-size: 0.95rem; 
+    color: #cdb7a6; 
+}
+
+.notes { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    gap: 1.4rem; 
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); 
+}
+
+.note {
+    background: var(--c, #e08a2e); 
+    color: #1d1420; 
+    font-size: 1.05rem; 
+    line-height: 1.45;
+    padding: 1.4rem 1.5rem 1.6rem; 
+    border-radius: 0 3rem 0 3rem; 
+    overflow-wrap: anywhere;
+    transform: rotate(var(--tilt, 0deg)); 
+    transform-origin: 50% 0;
+    animation: sway 7s ease-in-out infinite;
+}
+
+.note.fresh { 
+    box-shadow: 0 0 0 3px #f6e9d7; 
+}
+
+@keyframes sway { 
+    0%, 100% { 
+        transform: rotate(calc(var(--tilt, 0deg) - 1.2deg)); 
+    } 50% { 
+        transform: rotate(calc(var(--tilt, 0deg) + 1.2deg)); 
+    } 
+}
+@media (prefers-reduced-motion: reduce) { 
+    .note { 
+        animation: none; 
+    } 
+}
+
+.sub { 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+    color: #cdb7a6; 
+    max-width: 34rem; 
+    margin: 0 0 2.5rem; 
+}

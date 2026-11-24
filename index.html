@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanksgiving Timer</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;600&display=swap">
+</head>
+<body>
+
+  <canvas id="leaves" aria-hidden="true"></canvas>
+
+  <h1>Thanksgiving is on its way!</h1>
+
+  <div id="clock" class="clock" role="timer" aria-live="off"></div>
+  <p class="date" id="date"></p>
+
+  <div class="actions">
+    <a class="toggle" href="#wall">Read the gratitude wall</a>
+  </div>
+
+  <section class="wall-sec" id="wall" aria-labelledby="wall-h">
+    <h2 id="wall-h">What are you thankful for?</h2>
+      <p class="sub">Add a note and it joins the wall for everyone who visits.</p>
+        <form class="wform" id="wform" onsubmit="return false">
+          <input id="winput" type="text" maxlength="140" placeholder="I'm thankful for..." aria-label="What you are thankful for" autocomplete="off">
+            <button id="wbtn" type="submit">Add to the wall</button>
+        </form>
+          <p class="wstatus" id="wstatus" role="status"></p>
+            <ul class="notes" id="notes"></ul>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
